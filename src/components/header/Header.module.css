@@ -1,12 +1,45 @@
 .header {
-    height: 100px;
-    background-color: rgb(116, 105,
-            105);
+  position: relative;
+  height: 100px;
+  padding: 10px;
+  background-color: rgb(116, 105, 105);
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 .header_container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url(../../img/header.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.user_login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.user_img {
+  overflow: hidden;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.user_img img {
+  display: block;
 }

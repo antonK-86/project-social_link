@@ -1,9 +1,22 @@
 .App {
   background-color: rgb(47, 51, 54);
+  padding: 20px 0;
+  color: rgb(220, 231,
+      240);
 }
 
 .App_Container {
   display: block;
   margin: 0 auto;
   width: 90%;
+}
+
+.App_Content {
+  padding: 5px 10px;
+  background-color: rgb(116, 105, 105);
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
