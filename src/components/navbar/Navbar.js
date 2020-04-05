@@ -1,8 +1,11 @@
 import React from "react";
 import cls from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import SignOut from "../sign/SignOut";
 
-const Navbar = props => {
+const Navbar = (props) => {
+  //debugger;
   return (
     <nav className={cls.navbar}>
       <div className={cls.navbar_item + " " + cls.navbar_item__list}>
@@ -33,11 +36,15 @@ const Navbar = props => {
           className={`${cls.link}`}
           activeClassName={cls.active}
         >
-          Sign
+          {props.isAuth ? <SignOut /> : "Sign In"}
         </NavLink>
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+let mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps, null)(Navbar);

@@ -1,0 +1,35 @@
+.form {
+  width: 150px;
+  position: relative;
+}
+
+.form_item {
+  margin-bottom: 10px;
+}
+
+.form_item input {
+  width: 100%;
+}
+
+.form_item__checkbox {
+  margin-bottom: 10px;
+}
+
+.form_item__checkbox input {
+  margin: 0 10px 0 0;
+  height: 21px;
+}
+
+.form_item__checkbox label {
+  position: relative;
+  top: -6px;
+  font-size: 14px;
+}
+
+.form_error {
+  position: absolute;
+  color: crimson;
+  font-size: 12px;
+  left: 0;
+  bottom: 25px;
+}

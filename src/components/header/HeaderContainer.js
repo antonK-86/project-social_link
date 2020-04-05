@@ -1,11 +1,20 @@
 import React from "react";
 import Header from "./Header";
+import { authThunkC } from "../../redux/auth-reducer";
+import { connect } from "react-redux";
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.authThunkC();
+  }
   render() {
-    return <Header props={"Login user"} />;
+    return <Header {...this.props} />;
   }
 }
 
-export default HeaderContainer;
+let mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+  login: state.auth.login,
+});
+
+export default connect(mapStateToProps, { authThunkC })(HeaderContainer);
