@@ -48,3 +48,12 @@
 .not_auth {
   color: brown;
 }
+
+.user_name a {
+  color: rgb(220, 231, 240);
+  text-decoration: none;
+}
+
+.user_name a:hover {
+  color: burlywood;
+}

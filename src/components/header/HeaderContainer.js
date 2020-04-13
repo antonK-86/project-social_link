@@ -1,20 +1,17 @@
 import React from "react";
 import Header from "./Header";
-import { authThunkC } from "../../redux/auth-reducer";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
-class HeaderContainer extends React.Component {
-  componentDidMount() {
-    this.props.authThunkC();
-  }
-  render() {
-    return <Header {...this.props} />;
-  }
-}
+const HeaderContainer = (props) => {
+  return <Header {...props} />;
+};
 
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
   login: state.auth.login,
+  id: state.auth.id,
 });
 
-export default connect(mapStateToProps, { authThunkC })(HeaderContainer);
+export default compose(withRouter, connect(mapStateToProps))(HeaderContainer);

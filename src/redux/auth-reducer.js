@@ -26,7 +26,8 @@ export const authAction = (id, email, login, isAuth) => ({
 });
 
 export const authThunkC = () => (dispatch) => {
-  authApi.authMe().then((response) => {
+  // return - возвращает результат promisа, для использ. в appReducer, при инициализации приложения
+  return authApi.authMe().then((response) => {
     if (response.data.resultCode === 0) {
       let { id, email, login } = response.data.data;
       dispatch(authAction(id, email, login, true));

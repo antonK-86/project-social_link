@@ -1,8 +1,10 @@
 import React from "react";
 import cls from "./Header.module.css";
 import userIcon from "./user_icon.png";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
+  //debugger;
   return (
     <header className={cls.header}>
       <div className={cls.header_container}>
@@ -19,7 +21,9 @@ const UserIsAuth = (props) => {
       <div className={cls.user_img}>
         <img src={userIcon} alt="user" width="70" height="70" />
       </div>
-      <div className={cls.user_name}>{props.login}</div>
+      <div className={cls.user_name}>
+        <NavLink to={"/profile/" + props.id}>{props.login}</NavLink>
+      </div>
     </div>
   );
 };
