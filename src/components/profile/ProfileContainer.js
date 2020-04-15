@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import {
   getProfileThunk,
   getProfileStatusThunk,
+  clearProfile,
 } from "../../redux/profile-reducer";
 import { connect } from "react-redux";
 import { compose } from "redux";
@@ -10,14 +11,16 @@ import { withRouter } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    debugger;
+    //debugger;
     let userId = this.props.match.params.userId;
     if (!userId) userId = this.props.authId;
 
     this.props.getProfileThunk(userId);
     this.props.getProfileStatusThunk(userId);
   }
-
+  componentWillUnmount() {
+    this.props.clearProfile(); //для очисти профиля после перехода на др страницу
+  }
   render() {
     return <Profile {...this.props} />;
   }
@@ -35,5 +38,6 @@ export default compose(
   connect(mapStateToProps, {
     getProfileThunk,
     getProfileStatusThunk,
+    clearProfile,
   })
 )(ProfileContainer);

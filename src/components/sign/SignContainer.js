@@ -14,6 +14,7 @@ let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
 });
 
-export default connect(mapStateToProps, { signInThunkC, signOutThunkC })(
-  SignContainer
-);
+export default connect(mapStateToProps, {
+  signInThunkC,
+  signOutThunkC,
+})(SignContainer);

@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import appReducer from "./app-reducer";
 import profileReducer from "./profile-reducer";
 import userReducer from "./user-reducer";
+import testReducer from "./test-reducer";
 
 //объедидение reducer`ов
 let rootReducer = combineReducers({
@@ -12,6 +13,7 @@ let rootReducer = combineReducers({
   app: appReducer,
   profilePage: profileReducer,
   usersPage: userReducer,
+  test: testReducer,
   form: formReducer,
 });
 

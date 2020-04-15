@@ -12,7 +12,6 @@ const Sign = (props) => {
   if (props.isAuth) {
     return <Redirect to="/profile" />;
   }
-
   return (
     <div className={cls.Sign}>
       <div className={cls.name_page}>{props.props}</div>

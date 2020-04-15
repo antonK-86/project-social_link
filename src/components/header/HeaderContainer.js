@@ -1,8 +1,11 @@
 import React from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
-import { compose } from "redux";
-import { withRouter } from "react-router-dom";
+import {
+  clearProfile,
+  getProfileThunk,
+  getProfileStatusThunk,
+} from "../../redux/profile-reducer";
 
 const HeaderContainer = (props) => {
   return <Header {...props} />;
@@ -14,4 +17,8 @@ let mapStateToProps = (state) => ({
   id: state.auth.id,
 });
 
-export default compose(withRouter, connect(mapStateToProps))(HeaderContainer);
+export default connect(mapStateToProps, {
+  clearProfile,
+  getProfileThunk,
+  getProfileStatusThunk,
+})(HeaderContainer);

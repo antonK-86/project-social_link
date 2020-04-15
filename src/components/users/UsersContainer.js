@@ -6,6 +6,7 @@ import {
   getCurrentPage,
   followThunk,
   unFollowThunk,
+  editPages,
 } from "../../redux/user-reducer";
 
 class UsersContainer extends React.Component {
@@ -29,7 +30,10 @@ let mapStateToProps = (state) => ({
   count: state.usersPage.count,
   totalCount: state.usersPage.totalCount,
   currentPage: state.usersPage.currentPage,
-  loading: state.usersPage.loading,
+  limitPages: state.usersPage.limitPages,
+  j: state.usersPage.j,
+  countPage: state.usersPage.countPage,
+  isAuth: state.auth.isAuth,
 });
 
 export default connect(mapStateToProps, {
@@ -37,4 +41,5 @@ export default connect(mapStateToProps, {
   getCurrentPage,
   followThunk,
   unFollowThunk,
+  editPages,
 })(UsersContainer);

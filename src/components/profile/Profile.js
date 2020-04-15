@@ -7,8 +7,9 @@ import { Redirect } from "react-router-dom";
 
 const Profile = (props) => {
   //debugger;
-  //if (!props.isAuth) return <Redirect to="/sign" />;
+  //if (!props.profile && !props.isAuth) return <Redirect to="/sign" />;
   if (!props.profile) return <Preloader />;
+
   return (
     <div className={cls.profile}>
       <div className={cls.user_img}>

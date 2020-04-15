@@ -5,6 +5,9 @@ let initialState = {
   count: 28,
   currentPage: 1,
   totalCount: 0,
+  countPage: 12, //кол-во отображ страниц
+  limitPages: 12, //номер последней отображ страницы
+  j: 1,
   //loading: [],
 };
 
@@ -21,6 +24,14 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: action.currentPage,
+      };
+    }
+
+    case "EDIT-PAGES": {
+      return {
+        ...state,
+        limitPages: action.limitPages,
+        j: action.j,
       };
     }
 
@@ -65,6 +76,12 @@ const getUsersAction = (users, totalCount) => ({
 export const getCurrentPage = (currentPage) => ({
   type: "CURRENT-PAGE",
   currentPage: currentPage,
+});
+
+export const editPages = (limitPages, j) => ({
+  type: "EDIT-PAGES",
+  limitPages: limitPages,
+  j: j,
 });
 
 const followAction = (userId) => ({

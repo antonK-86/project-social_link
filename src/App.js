@@ -45,4 +45,4 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default compose(withRouter, connect(mapStateToProps, { initApp }))(App);
+export default connect(mapStateToProps, { initApp })(withRouter(App));

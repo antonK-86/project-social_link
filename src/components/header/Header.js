@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./Header.module.css";
 import userIcon from "./user_icon.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 const Header = (props) => {
   //debugger;
@@ -14,16 +14,27 @@ const Header = (props) => {
     </header>
   );
 };
-
 const UserIsAuth = (props) => {
+  let navToMyProfile = () => {
+    props.clearProfile();
+    props.getProfileThunk(props.id);
+    props.getProfileStatusThunk(props.id);
+  };
+
   return (
     <div className={cls.user_login}>
       <div className={cls.user_img}>
         <img src={userIcon} alt="user" width="70" height="70" />
       </div>
-      <div className={cls.user_name}>
-        <NavLink to={"/profile/" + props.id}>{props.login}</NavLink>
-      </div>
+      <NavLink
+        className={cls.user_name}
+        onClick={() => {
+          navToMyProfile();
+        }}
+        to="/profile"
+      >
+        {props.login}
+      </NavLink>
     </div>
   );
 };
@@ -36,4 +47,4 @@ const UserIsNotAuth = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

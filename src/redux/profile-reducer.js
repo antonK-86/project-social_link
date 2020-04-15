@@ -3,7 +3,6 @@ import { profileApi } from "../api/Api";
 let initialState = {
   profile: null,
   status: " ",
-  userId: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -19,6 +18,13 @@ const profileReducer = (state = initialState, action) => {
         status: action.status,
       };
 
+    case "CLEAR-PROFILE":
+      return {
+        ...state,
+        profile: null,
+        status: null,
+      };
+
     default:
       return state;
   }
@@ -32,6 +38,10 @@ export const getProfileAction = (profile) => ({
 export const getProfileStatusAction = (status) => ({
   type: "GET-PROFILE-STATUS",
   status: status,
+});
+
+export const clearProfile = (state) => ({
+  type: "CLEAR-PROFILE",
 });
 
 export const getProfileThunk = (userId) => (dispatch) => {
