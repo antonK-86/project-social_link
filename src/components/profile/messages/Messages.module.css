@@ -1,0 +1,34 @@
+.message_item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.avatar_block {
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.date_message {
+    margin-left: 10px;
+    color: rgb(56, 40, 40);
+    font-size: 12px;
+}
+
+.user_message {
+    margin-top: 10px;
+    color: cornsilk;
+}
+
+.form_message {
+    width: 70%;
+    margin: 20px auto 0;
+}
+
+.form_message .button {
+    margin: 0 auto 0;
+}

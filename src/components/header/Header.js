@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./Header.module.css";
 import userIcon from "./user_icon.png";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   //debugger;
@@ -47,4 +47,4 @@ const UserIsNotAuth = () => {
   );
 };
 
-export default withRouter(Header);
+export default Header;

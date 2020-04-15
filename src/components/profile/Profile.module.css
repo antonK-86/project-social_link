@@ -11,3 +11,10 @@
 .user_img img {
     display: block;
 }
+
+.profile hr {
+    border: none;
+    height: 2px;
+    color: rgb(47, 51, 54);
+    background-color: rgb(47, 51, 54);
+}

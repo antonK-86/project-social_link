@@ -1,12 +1,10 @@
 import React from "react";
 import cls from "./Navbar.module.css";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import SignOut from "../sign/SignOut";
-import { compose } from "redux";
 
 const Navbar = (props) => {
-  //debugger;
   return (
     <nav className={cls.navbar}>
       <div className={cls.navbar_item + " " + cls.navbar_item__list}>
@@ -32,13 +30,17 @@ const Navbar = (props) => {
         </NavLink>
       </div>
       <div className={cls.navbar_item}>
-        <NavLink
-          to="/sign"
-          className={`${cls.link}`}
-          activeClassName={cls.active}
-        >
-          {props.isAuth ? <SignOut /> : "Sign In"}
-        </NavLink>
+        {props.isAuth ? (
+          <SignOut />
+        ) : (
+          <NavLink
+            to="/sign"
+            className={`${cls.link}`}
+            activeClassName={cls.active}
+          >
+            Sign In
+          </NavLink>
+        )}
       </div>
     </nav>
   );
@@ -48,4 +50,5 @@ let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
 });
 
-export default compose(withRouter, connect(mapStateToProps, null))(Navbar);
+//export default compose(withRouter, connect(mapStateToProps, null))(Navbar);
+export default connect(mapStateToProps)(Navbar);

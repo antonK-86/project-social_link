@@ -1,0 +1,20 @@
+.page_item {
+    color: rgb(156, 155, 148);
+}
+
+.page_item:hover {
+    color: burlywood;
+    cursor: pointer;
+}
+
+.selected {
+    color: burlywood;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.arrow:hover {
+    color: burlywood;
+}

@@ -15,8 +15,6 @@
     text-align: center;
 }
 
-
-
 .user_img {
     display: inline-block;
     overflow: hidden;
@@ -35,25 +33,4 @@
     -webkit-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.40);
     -moz-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.40);
     box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.40);
-}
-
-.page_item {
-    color: rgb(156, 155, 148);
-}
-
-.page_item:hover {
-    color: burlywood;
-    cursor: pointer;
-}
-
-.selected {
-    color: burlywood;
-}
-
-.arrow {
-    cursor: pointer;
-}
-
-.arrow:hover {
-    color: burlywood;
 }

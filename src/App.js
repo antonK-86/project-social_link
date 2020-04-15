@@ -6,7 +6,6 @@ import Navbar from "./components/navbar/Navbar";
 import ProfileContainer from "./components/profile/ProfileContainer";
 import UsersContainer from "./components/users/UsersContainer";
 import RedirectTo from "./components/redirect/Redirect";
-import TestContainer from "./components/test/TestContainer";
 import Test from "./components/test/Test";
 import SignContainer from "./components/sign/SignContainer";
 import { connect } from "react-redux";
@@ -45,4 +44,4 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default connect(mapStateToProps, { initApp })(withRouter(App));
+export default compose(withRouter, connect(mapStateToProps, { initApp }))(App);

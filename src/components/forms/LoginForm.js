@@ -2,7 +2,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import cls from "./LoginForm.module.css";
 import { required, minLength } from "../../validate/Validators";
-import InputForm from "./Forms";
+import { InputForm } from "./Forms";
 
 const minLength4 = minLength(4);
 
