@@ -18,7 +18,7 @@ const UserIsAuth = (props) => {
   let navToMyProfile = () => {
     props.clearProfile();
     props.getProfileThunk(props.id);
-    props.getProfileStatusThunk(props.id);
+    //props.getProfileStatusThunk(props.id);
   };
 
   return (

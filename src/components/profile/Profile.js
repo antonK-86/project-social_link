@@ -25,7 +25,12 @@ const Profile = (props) => {
         <div>ID:{" " + props.profile.userId}</div>
         <div>About me:{" " + !props.profile.aboutMe && ""}</div>
         <div>
-          <MyStatus status={props.status} />
+          <MyStatus
+            status={props.status}
+            userId={props.profile.userId}
+            authId={props.authId}
+            updateStatus={props.updateStatus}
+          />
         </div>
         <br />
         <hr />

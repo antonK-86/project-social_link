@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   clearProfile,
   getProfileThunk,
-  getProfileStatusThunk,
+  //getProfileStatusThunk,
 } from "../../redux/profile-reducer";
 
 const HeaderContainer = (props) => {
@@ -20,5 +20,5 @@ let mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   clearProfile,
   getProfileThunk,
-  getProfileStatusThunk,
+  //getProfileStatusThunk,
 })(HeaderContainer);

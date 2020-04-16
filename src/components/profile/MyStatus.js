@@ -1,9 +1,58 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const MyStatus = (props) => {
+  //debugger;
+  let [editModeStatus, setEditMode] = useState(false);
+  let [localStatus, setStatus] = useState(props.status);
+
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
+
+  const activateEditMode = () => {
+    setEditMode(true);
+  };
+
+  const deActivateEditMode = () => {
+    setEditMode(false);
+    props.updateStatus(localStatus);
+  };
+
+  const onChangeStatus = (e) => {
+    setStatus(e.currentTarget.value);
+  };
+
+  //if (props.userId === props.authId)
   return (
     <div>
-      My status:<span>{" " + props.status}</span>
+      <span>My status:</span>&nbsp;
+      {props.userId === props.authId ? (
+        editModeStatus ? (
+          <input
+            style={{
+              outline: "none",
+              borderRadius: "3px",
+              backgroundColor: "rgb(211, 202, 202)",
+              color: "rgb(71, 70, 66)",
+              fontWeight: "bold",
+            }}
+            autoFocus={true}
+            type="text"
+            maxLength="400"
+            onBlur={deActivateEditMode}
+            onChange={onChangeStatus}
+          />
+        ) : (
+          <span
+            style={{ color: "cornsilk", cursor: "pointer" }}
+            onDoubleClick={activateEditMode}
+          >
+            {props.status}
+          </span>
+        )
+      ) : (
+        <span>{props.status}</span>
+      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { profileApi } from "../api/Api";
 
 let initialState = {
   profile: null,
-  status: " ",
+  status: "No status",
   messages: [
     {
       avatar: null,
@@ -42,7 +42,8 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         profile: action.profile,
       };
-    case "GET-PROFILE-STATUS":
+
+    case "UPDATE-STATUS":
       return {
         ...state,
         status: action.status,
@@ -52,7 +53,7 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         profile: null,
-        status: null,
+        status: "No status",
       };
 
     case "ADD-MESSAGE":
@@ -76,28 +77,24 @@ export const getProfileAction = (profile) => ({
   profile: profile,
 });
 
-export const getProfileStatusAction = (status) => ({
-  type: "GET-PROFILE-STATUS",
-  status: status,
-});
-
 export const clearProfile = (state) => ({
   type: "CLEAR-PROFILE",
 });
 
-export const getProfileThunk = (userId) => (dispatch) => {
-  profileApi.getProfile(userId).then((response) => {
-    dispatch(getProfileAction(response.data));
-  });
+export const getProfileThunk = (userId) => async (dispatch) => {
+  let response = await profileApi.getProfile(userId);
+  dispatch(getProfileAction(response.data));
 };
 
+export const updateStatus = (status) => ({
+  type: "UPDATE-STATUS",
+  status: status,
+});
+
 export const getProfileStatusThunk = (userId) => (dispatch) => {
+  //debugger;
   profileApi.getProfileStatus(userId).then((response) => {
-    // debugger;
-    if (!response.data) dispatch(getProfileStatusAction(" "));
-    else {
-      dispatch(getProfileStatusAction(response.data));
-    }
+    if (response.data) dispatch(updateStatus(response.data));
   });
 };
 

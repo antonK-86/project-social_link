@@ -11,7 +11,6 @@ import {
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    //debugger;
     this.props.getUsersThunk(this.props.count, this.props.currentPage);
   }
 

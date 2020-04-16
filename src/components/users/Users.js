@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import Pages from "./Pages";
 
 const Users = (props) => {
+  //debugger;
   let usersArr = props.users.map((u) => (
     <div className={cls.user_item} key={u.id}>
       <NavLink to={"/profile/" + u.id} className={cls.user_img}>

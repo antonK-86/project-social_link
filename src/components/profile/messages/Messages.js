@@ -8,10 +8,8 @@ import { connect } from "react-redux";
 import { addMessage } from "../../../redux/profile-reducer";
 
 const Messages = (props) => {
-  //debugger;
-  let d = new Date();
-
   let onHandleSubmit = (data) => {
+    let d = new Date();
     if (!data.textarea) return;
     let objData = {
       avatar: null,

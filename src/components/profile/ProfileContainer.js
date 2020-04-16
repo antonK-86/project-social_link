@@ -2,6 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 import {
   getProfileThunk,
+  updateStatus,
   getProfileStatusThunk,
   clearProfile,
 } from "../../redux/profile-reducer";
@@ -37,6 +38,7 @@ export default compose(
   withRouter,
   connect(mapStateToProps, {
     getProfileThunk,
+    updateStatus,
     getProfileStatusThunk,
     clearProfile,
   })
