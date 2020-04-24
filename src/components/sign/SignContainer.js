@@ -1,7 +1,11 @@
 import React from "react";
 import Sign from "./Sign";
 import { connect } from "react-redux";
-import { signInThunkC, signOutThunkC } from "../../redux/auth-reducer";
+import {
+  signInThunkC,
+  signOutThunkC,
+  getCaptchaAction,
+} from "../../redux/auth-reducer";
 
 class SignContainer extends React.Component {
   componentDidMount() {}
@@ -12,9 +16,11 @@ class SignContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
+  captcha: state.auth.captcha,
 });
 
 export default connect(mapStateToProps, {
   signInThunkC,
   signOutThunkC,
+  getCaptchaAction,
 })(SignContainer);

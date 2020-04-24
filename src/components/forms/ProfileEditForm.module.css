@@ -1,0 +1,176 @@
+/*для формы изменения профиля*/
+.modal_edit__profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(90, 91, 92, 0.7);
+}
+
+.modal_edit__profile_form {
+    display: flex;
+    padding: 10px;
+    background-color: rgb(134, 138, 146);
+    -webkit-box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.75);
+    position: relative;
+}
+
+.close {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.close img {
+    display: block;
+}
+
+
+.close img:hover {
+    -o-transform: skew(-30deg, 30deg);
+    -ms-transform: skew(-30deg, 30deg);
+    -moz-transform: skew(-30deg, 30deg);
+    -webkit-transform: skew(-30deg, 30deg);
+    transform: skew(-30deg, 30deg);
+}
+
+
+.checkbox {
+    position: relative;
+    top: 2px;
+}
+
+.checkbox input {
+    color: rgb(211, 202, 202);
+    background-color: rgb(211, 202, 202);
+    ;
+}
+
+.save_btn {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.btn {
+    margin-top: 20px;
+    cursor: pointer;
+    display: inline-block;
+    color: rgb(43, 37, 37);
+    font-weight: 400;
+    text-align: center;
+    outline: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 3px 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn_secondary {
+    background-color: #73777a;
+    border-color: #6c757d;
+}
+
+.btn_secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.user_img {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.user_img img {
+    display: block;
+}
+
+.user_img__edit img {
+    cursor: pointer;
+    display: block;
+}
+
+.contacts {
+    margin: 0;
+    list-style-type: none;
+    padding-inline-start: 20px;
+}
+
+.profile hr {
+    border: none;
+    height: 2px;
+    color: rgb(47, 51, 54);
+    background-color: rgb(47, 51, 54);
+}
+
+.input_file {
+    display: none;
+}
+
+.file_upload {
+    position: relative;
+    overflow: hidden;
+    width: 70px;
+    height: 20px;
+    background: rgb(113, 114, 121);
+    border-radius: 2px;
+    color: rgb(199, 189, 189);
+    text-align: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.file_upload:hover {
+    background: rgb(86, 97, 109);
+}
+
+.file_upload .label {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file_upload .span {
+
+    line-height: 10px;
+    font-size: 10px;
+}
+
+.edit_field {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: rgb(223, 128, 65);
+    font-size: 10px;
+    font-weight: 300;
+}

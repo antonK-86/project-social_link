@@ -22,8 +22,8 @@ const Messages = (props) => {
     data.textarea = "";
   };
   return (
-    <div>
-      <div>
+    <div className={cls.message_1}>
+      <div className={cls.message_2}>
         {props.messages.map((m) => (
           <div className={cls.message_item} key={m.mesId}>
             <div className={cls.avatar_block}>
@@ -36,7 +36,7 @@ const Messages = (props) => {
                 <span>{m.userName}</span>
                 <span className={cls.date_message}>{m.date}</span>
               </div>
-              <div className={cls.user_message}>{m.message}</div>
+              <p className={cls.user_message}>{m.message}</p>
             </div>
           </div>
         ))}

@@ -28,6 +28,9 @@ const Navbar = (props) => {
         >
           Redirect
         </NavLink>
+        <NavLink to="/game" className={cls.link} activeClassName={cls.active}>
+          Game XO
+        </NavLink>
       </div>
       <div className={cls.navbar_item}>
         {props.isAuth ? (

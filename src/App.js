@@ -1,10 +1,8 @@
-import React from "react";
-import { Route, withRouter } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Route, withRouter, Switch } from "react-router-dom";
 import "./App.css";
 import HeaderContainer from "./components/header/HeaderContainer";
 import Navbar from "./components/navbar/Navbar";
-import ProfileContainer from "./components/profile/ProfileContainer";
-import UsersContainer from "./components/users/UsersContainer";
 import RedirectTo from "./components/redirect/Redirect";
 import Test from "./components/test/Test";
 import SignContainer from "./components/sign/SignContainer";
@@ -12,6 +10,16 @@ import { connect } from "react-redux";
 import { initApp } from "./redux/app-reducer";
 import { compose } from "redux";
 import PreloaderApp from "./components/preloader/PreloaderApp";
+import ErrPage from "./components/errorpage/ErrPage";
+import Preloader from "./components/preloader/Preloader";
+import GameXO from "./components/game/GameXO";
+
+const ProfileContainer = React.lazy(() =>
+  import("./components/profile/ProfileContainer")
+);
+const UsersContainer = React.lazy(() =>
+  import("./components/users/UsersContainer")
+);
 
 class App extends React.Component {
   componentDidMount() {
@@ -25,14 +33,23 @@ class App extends React.Component {
           <HeaderContainer />
           <Navbar />
           <main className="App_Content">
-            <Route path="/users" render={() => <UsersContainer />} />
-            <Route
-              path="/profile/:userId?"
-              render={() => <ProfileContainer />}
-            />
-            <Route path="/test" render={() => <Test />} />
-            <Route path="/redirect" component={RedirectTo} />
-            <Route path="/sign" render={() => <SignContainer />} />
+            <Suspense fallback={<Preloader />}>
+              <Switch>
+                {/* Switch выбuраeт первый попавшийся маршрут для обработки*/}
+                <Route exact path="/" render={() => <SignContainer />} />
+                {/*exact указывает, что строка запроса должна в точности соответствовать шаблону маршрута*/}
+                <Route path="/users" render={() => <UsersContainer />} />{" "}
+                <Route
+                  path="/profile/:userId?"
+                  render={() => <ProfileContainer />}
+                />
+                <Route path="/test" render={() => <Test />} />
+                <Route path="/redirect" component={RedirectTo} />
+                <Route path="/game" component={GameXO} />
+                <Route path="/sign" render={() => <SignContainer />} />
+                <Route component={ErrPage} />
+              </Switch>{" "}
+            </Suspense>
           </main>
         </div>
       </div>

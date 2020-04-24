@@ -13,6 +13,11 @@
     -o-border-radius: 2px;
 }
 
+.user_block {
+    display: block;
+    max-width: 50%;
+}
+
 .date_message {
     margin-left: 10px;
     color: rgb(56, 40, 40);
@@ -20,8 +25,10 @@
 }
 
 .user_message {
+    width: 100%;
     margin-top: 10px;
     color: cornsilk;
+    white-space: normal
 }
 
 .form_message {
@@ -31,4 +38,9 @@
 
 .form_message .button {
     margin: 0 auto 0;
+}
+
+.message_1,
+.message_2 {
+    display: block;
 }

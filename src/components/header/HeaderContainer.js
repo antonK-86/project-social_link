@@ -4,21 +4,33 @@ import { connect } from "react-redux";
 import {
   clearProfile,
   getProfileThunk,
-  //getProfileStatusThunk,
+  getProfileStatusThunk,
 } from "../../redux/profile-reducer";
+import { Component } from "react";
+import { getPhotoAction } from "../../redux/auth-reducer";
 
-const HeaderContainer = (props) => {
-  return <Header {...props} />;
-};
+class HeaderContainer extends Component {
+  componentDidUpdate() {
+    if (this.props.profile && this.props.profile.userId === this.props.id) {
+      this.props.getPhotoAction(this.props.profile.photos.small);
+    }
+  }
+  render() {
+    return <Header {...this.props} />;
+  }
+}
 
 let mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
   login: state.auth.login,
   id: state.auth.id,
+  photo: state.auth.photo,
+  profile: state.profilePage.profile,
 });
 
 export default connect(mapStateToProps, {
   clearProfile,
   getProfileThunk,
-  //getProfileStatusThunk,
+  getPhotoAction,
+  getProfileStatusThunk,
 })(HeaderContainer);

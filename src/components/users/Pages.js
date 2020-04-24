@@ -68,14 +68,16 @@ const Pages = (props) => {
   ));
   return (
     <div className={cls.pages}>
-      <span
-        className={cls.arrow}
-        onClick={() => {
-          fFistPage();
-        }}
-      >
-        {" first page "}
-      </span>
+      {props.currentPage > props.countPage && (
+        <span
+          className={cls.arrow}
+          onClick={() => {
+            fFistPage();
+          }}
+        >
+          {" first page "}
+        </span>
+      )}
       <span
         className={cls.arrow}
         onClick={() => {
@@ -93,14 +95,16 @@ const Pages = (props) => {
       >
         {" >> "}
       </span>
-      <span
-        className={cls.arrow}
-        onClick={() => {
-          fLastPage();
-        }}
-      >
-        {" last page "}
-      </span>
+      {props.currentPage < countPages - props.countPage && (
+        <span
+          className={cls.arrow}
+          onClick={() => {
+            fLastPage();
+          }}
+        >
+          {" last page "}
+        </span>
+      )}
     </div>
   );
 };

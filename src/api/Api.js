@@ -9,8 +9,8 @@ const dataApi = axios.create({
 });
 
 export const authApi = {
-  signIn: (email, password, rememberMe = false) => {
-    return dataApi.post("auth/login", { email, password, rememberMe });
+  signIn: (email, password, rememberMe = false, captcha) => {
+    return dataApi.post("auth/login", { email, password, rememberMe, captcha });
   },
 
   authMe: () => {
@@ -19,6 +19,12 @@ export const authApi = {
 
   signOut: () => {
     return dataApi.delete("auth/login");
+  },
+};
+
+export const securityApi = {
+  getCaptcha: () => {
+    return dataApi.get("security/get-captcha-url");
   },
 };
 
@@ -46,5 +52,15 @@ export const profileApi = {
   },
   setProfileStatus: (textStatus) => {
     return dataApi.put("profile/status", { status: textStatus });
+  },
+  setProfileInfo: (data) => {
+    return dataApi.put("profile", data);
+  },
+  uploadPhoto: (photofile) => {
+    var formData = new FormData(); //создаем объект для отправки файла
+    formData.append("image", photofile);
+    return dataApi.put("profile/photo", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   },
 };

@@ -34,6 +34,20 @@ let LoginForm = (props) => {
         <Field name="rememberMe" component="input" type="checkbox" />
         <label htmlFor="rememberMe">Remember me</label>
       </div>
+      {props.captcha && (
+        <div className={cls.form_item}>
+          <img src={props.captcha} alt="" />
+
+          <Field
+            name="captcha"
+            component={InputForm}
+            type="text"
+            placeholder="Enter simbols from pict"
+            validate={[required]}
+          />
+        </div>
+      )}
+
       <div className={cls.form_error}>{props.error}</div>
       <input name="Sign In" type="submit" value="Sign In" />
     </form>

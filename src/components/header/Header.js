@@ -4,7 +4,6 @@ import userIcon from "./user_icon.png";
 import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
-  //debugger;
   return (
     <header className={cls.header}>
       <div className={cls.header_container}>
@@ -18,13 +17,12 @@ const UserIsAuth = (props) => {
   let navToMyProfile = () => {
     props.clearProfile();
     props.getProfileThunk(props.id);
-    //props.getProfileStatusThunk(props.id);
+    props.getProfileStatusThunk(props.id);
   };
-
   return (
     <div className={cls.user_login}>
       <div className={cls.user_img}>
-        <img src={userIcon} alt="user" width="70" height="70" />
+        <img src={props.photo || userIcon} alt="user" width="70" height="70" />
       </div>
       <NavLink
         className={cls.user_name}

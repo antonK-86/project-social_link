@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Field } from "redux-form";
 
 const MyStatus = (props) => {
   //debugger;
@@ -16,13 +17,20 @@ const MyStatus = (props) => {
   const deActivateEditMode = () => {
     setEditMode(false);
     props.updateStatus(localStatus);
+    props.setProfileStatusThunk();
   };
 
   const onChangeStatus = (e) => {
     setStatus(e.currentTarget.value);
   };
 
-  //if (props.userId === props.authId)
+  const keyPress = (e) => {
+    if (e.key === "Enter") {
+      setEditMode(false);
+      props.updateStatus(localStatus);
+      props.setProfileStatusThunk();
+    }
+  };
   return (
     <div>
       <span>My status:</span>&nbsp;
@@ -38,9 +46,11 @@ const MyStatus = (props) => {
             }}
             autoFocus={true}
             type="text"
-            maxLength="400"
+            maxLength="40"
             onBlur={deActivateEditMode}
             onChange={onChangeStatus}
+            onKeyUp={keyPress}
+            value={localStatus}
           />
         ) : (
           <span
