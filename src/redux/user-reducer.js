@@ -2,13 +2,14 @@ import { usersApi } from "../api/Api";
 
 let initialState = {
   users: [],
-  count: 28,
+  count: 20,
   currentPage: 1,
   totalCount: 0,
   countPage: 12, //кол-во отображ страниц
   limitPages: 12, //номер последней отображ страницы
   j: 1,
-  //loading: [],
+  numList: 1, //номер списокa users при прокрутке странице
+  loading: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -20,6 +21,13 @@ const userReducer = (state = initialState, action) => {
         totalCount: action.totalCount,
       };
 
+    case "ADD-USERS-ON-LIST":
+      return {
+        ...state,
+        //users: .concat(),
+        users: [...state.users, ...action.users],
+        numList: state.numList + 1,
+      };
     case "CURRENT-PAGE": {
       return {
         ...state,
@@ -54,23 +62,45 @@ const userReducer = (state = initialState, action) => {
         }),
       };
     }
-    /*
+
     case "LOADING": {
       return {
         ...state,
-        loading: state.loading.push(action.userId),
+        loading: action.loading,
       };
     }
-*/
+
+    case "CLEAR-USERS":
+      return {
+        ...state,
+        users: [],
+      };
+
     default:
       return state;
   }
 };
 
+//ActionCreators
+
+export const loadingAction = (loading) => ({
+  type: "LOADING",
+  loading,
+});
+
+export const clearUsers = () => ({
+  type: "CLEAR-USERS",
+});
+
 const getUsersAction = (users, totalCount) => ({
   type: "GET-USERS",
   users: users,
   totalCount: totalCount,
+});
+
+const addUsersAction = (users) => ({
+  type: "ADD-USERS-ON-LIST",
+  users,
 });
 
 export const getCurrentPage = (currentPage) => ({
@@ -93,35 +123,37 @@ const unFollowAction = (userId) => ({
   type: "UNFOLLOW",
   userId: userId,
 });
-/*
-export const loadingAction = (userId) => ({
-  type: "LOADING",
-  userId: userId,
-});
-*/
+
+//THUNKs
+
 export const getUsersThunk = (count, page) => (dispatch) => {
   usersApi.getUsers(count, page).then((response) => {
     dispatch(getUsersAction(response.data.items, response.data.totalCount));
   });
 };
 
+//добавляет пользователей на страницу при прокрутке
+export const addUsersThunk = (count, page) => async (dispatch) => {
+  dispatch(loadingAction(true));
+  let response = await usersApi.getUsers(count, page);
+  //debugger;
+  dispatch(addUsersAction(response.data.items));
+  dispatch(loadingAction(false));
+};
+
 export const followThunk = (userId) => (dispatch) => {
-  //dispatch(loadingAction(userId));
   usersApi.follow(userId).then((response) => {
     if (response.data.resultCode === 0) {
       dispatch(followAction(userId));
     }
-    //dispatch(loadingAction(userId));
   });
 };
 
 export const unFollowThunk = (userId) => (dispatch) => {
-  //dispatch(loadingAction(userId));
   usersApi.unFollow(userId).then((response) => {
     if (response.data.resultCode === 0) {
       dispatch(unFollowAction(userId));
     }
-    //dispatch(loadingAction(userId));
   });
 };
 

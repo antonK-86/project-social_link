@@ -13,6 +13,7 @@ import PreloaderApp from "./components/preloader/PreloaderApp";
 import ErrPage from "./components/errorpage/ErrPage";
 import Preloader from "./components/preloader/Preloader";
 import GameXO from "./components/game/GameXO";
+import UsersSContainer from "./components/users/usersWithScroll/UsersSContainer";
 
 const ProfileContainer = React.lazy(() =>
   import("./components/profile/ProfileContainer")
@@ -38,11 +39,12 @@ class App extends React.Component {
                 {/* Switch выбuраeт первый попавшийся маршрут для обработки*/}
                 <Route exact path="/" render={() => <SignContainer />} />
                 {/*exact указывает, что строка запроса должна в точности соответствовать шаблону маршрута*/}
-                <Route path="/users" render={() => <UsersContainer />} />{" "}
+                <Route path="/users" render={() => <UsersContainer />} />
                 <Route
                   path="/profile/:userId?"
                   render={() => <ProfileContainer />}
                 />
+                <Route path="/usersS" render={() => <UsersSContainer />} />
                 <Route path="/test" render={() => <Test />} />
                 <Route path="/redirect" component={RedirectTo} />
                 <Route path="/game" component={GameXO} />

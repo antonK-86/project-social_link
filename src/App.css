@@ -2,15 +2,13 @@
   min-height: 100vh;
   background-color: rgb(47, 51, 54);
   padding: 20px 0;
-  color: rgb(220, 231,
-      240);
+  color: rgb(220, 231, 240);
 }
 
 .App_Container {
   display: block;
   margin: 0 auto;
   width: 90%;
-
 }
 
 .App_Content {

@@ -15,6 +15,7 @@ class HeaderContainer extends Component {
       this.props.getPhotoAction(this.props.profile.photos.small);
     }
   }
+
   render() {
     return <Header {...this.props} />;
   }

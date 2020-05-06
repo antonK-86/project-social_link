@@ -7,6 +7,7 @@ import {
   followThunk,
   unFollowThunk,
   editPages,
+  clearUsers,
 } from "../../redux/user-reducer";
 
 class UsersContainer extends React.Component {
@@ -14,11 +15,15 @@ class UsersContainer extends React.Component {
     this.props.getUsersThunk(this.props.count, this.props.currentPage);
   }
 
+  componentWillUnmount() {
+    this.props.clearUsers();
+  }
   onPageChange = (page) => {
     //изменение номера страницы
     this.props.getCurrentPage(page);
     this.props.getUsersThunk(this.props.count, page);
   };
+
   render() {
     return <Users {...this.props} onPageChange={this.onPageChange} />;
   }
@@ -32,6 +37,7 @@ let mapStateToProps = (state) => ({
   limitPages: state.usersPage.limitPages,
   j: state.usersPage.j,
   countPage: state.usersPage.countPage,
+  loading: state.usersPage.loading,
   isAuth: state.auth.isAuth,
 });
 
@@ -41,4 +47,5 @@ export default connect(mapStateToProps, {
   followThunk,
   unFollowThunk,
   editPages,
+  clearUsers,
 })(UsersContainer);

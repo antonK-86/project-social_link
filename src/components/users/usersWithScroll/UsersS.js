@@ -1,11 +1,12 @@
 import React from "react";
-import cls from "./Users.module.css";
-import userIcon from "../../img/user_icon.png";
+import cls from "./UsersS.module.css";
+import userIcon from "../../../img/user_icon.png";
 import { NavLink } from "react-router-dom";
-import Pages from "./Pages";
-import Preloader from "../preloader/Preloader";
+import Preloader from "../../preloader/Preloader";
 
-const Users = (props) => {
+const UsersS = (props) => {
+  //debugger;
+
   let usersArr = props.users.map((u) => (
     <div className={cls.user_item} key={u.id}>
       <NavLink to={"/profile/" + u.id} className={cls.user_img}>
@@ -46,11 +47,18 @@ const Users = (props) => {
 
   return (
     <div className={cls.users_page}>
-      <Pages {...props} />
       <div className={cls.users}>{usersArr}</div>
       <div>{props.loading && <Preloader />}</div>
+      <button
+        onClick={() => {
+          props.addUsersOnList();
+        }}
+        className={cls.btn + " " + cls.btn_secondary}
+      >
+        Show other users
+      </button>
     </div>
   );
 };
 
-export default Users;
+export default UsersS;

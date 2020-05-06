@@ -18,6 +18,9 @@ const Navbar = (props) => {
         >
           Profile
         </NavLink>
+        <NavLink to="/usersS" className={cls.link} activeClassName={cls.active}>
+          UsersWithScroll
+        </NavLink>
         <NavLink to="/test" className={cls.link} activeClassName={cls.active}>
           Test
         </NavLink>
