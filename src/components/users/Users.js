@@ -21,6 +21,7 @@ const Users = (props) => {
           {u.followed ? (
             <button
               //disabled={props.loading}
+              className={cls.btn + " " + cls.btn_secondary}
               onClick={() => {
                 props.unFollowThunk(u.id);
               }}
@@ -29,7 +30,8 @@ const Users = (props) => {
             </button>
           ) : (
             <button
-              disabled={props.loading}
+              className={cls.btn + " " + cls.btn_secondary}
+              // disabled={props.loading}
               onClick={() => {
                 props.followThunk(u.id);
               }}

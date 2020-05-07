@@ -1,4 +1,4 @@
-import { authApi, securityApi } from "../api/Api";
+import { authApi, securityApi, profileApi } from "../api/Api";
 import { stopSubmit } from "redux-form";
 
 let initialState = {
@@ -49,14 +49,22 @@ export const getPhotoAction = (photo) => ({
   payload: photo,
 });
 
-export const authThunkC = () => (dispatch) => {
+export const authThunkC = () => async (dispatch) => {
   // return - возвращает результат promisа, для использ. в appReducer, при инициализации приложения
-  return authApi.authMe().then((response) => {
+  try {
+    let response = await authApi.authMe();
     if (response.data.resultCode === 0) {
       let { id, email, login } = response.data.data;
-      dispatch(authAction(id, email, login, true));
+      return dispatch(authAction(id, email, login, true));
     }
-  });
+  } catch (error) {
+    alert("Error initialized");
+  }
+};
+
+export const getPhotoProfileThunkC = (userId) => async (dispatch) => {
+  let response = await profileApi.getProfile(userId);
+  dispatch(getPhotoAction(response.data.photos.small));
 };
 
 export const signInThunkC = (

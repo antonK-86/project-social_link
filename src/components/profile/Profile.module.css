@@ -1,109 +1,129 @@
 .user_img {
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 .user_img img {
-    display: block;
+  display: block;
 }
 
 .user_img__edit img {
-    cursor: pointer;
-    display: block;
+  cursor: pointer;
+  display: block;
 }
 
 .contacts {
-    margin: 0;
-    list-style-type: none;
-    padding-inline-start: 20px;
+  margin: 0;
+  list-style-type: none;
+  padding-inline-start: 20px;
 }
 
 .contacts a {
-    text-decoration: none;
-    color: cornsilk;
+  text-decoration: none;
+  color: cornsilk;
 }
 
 .contacts a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .profile hr {
-    border: none;
-    height: 2px;
-    color: rgb(47, 51, 54);
-    background-color: rgb(47, 51, 54);
+  border: none;
+  height: 2px;
+  color: rgb(47, 51, 54);
+  background-color: rgb(47, 51, 54);
 }
 
 .input_file {
-    display: none;
+  display: none;
 }
 
 .file_upload {
-    position: relative;
-    overflow: hidden;
-    width: 70px;
-    height: 20px;
-    background: rgb(113, 114, 121);
-    border-radius: 2px;
-    color: rgb(199, 189, 189);
-    text-align: center;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  width: 70px;
+  height: 20px;
+  background: rgb(113, 114, 121);
+  border-radius: 2px;
+  color: rgb(199, 189, 189);
+  text-align: center;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
 }
 
 .file_upload:hover {
-    background: rgb(86, 97, 109);
+  background: rgb(86, 97, 109);
 }
 
 .file_upload .label {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
 .file_upload .span {
-
-    line-height: 10px;
-    font-size: 10px;
+  line-height: 10px;
+  font-size: 10px;
 }
 
 .btn {
-    cursor: pointer;
-    display: inline-block;
-    color: rgb(199, 189, 189);
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 3px 6px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  cursor: pointer;
+  display: inline-block;
+  color: rgb(199, 189, 189);
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 3px 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btn_secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn_secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.status_inline {
+  display: inline;
+  position: relative;
+}
+
+.status_prompt {
+  display: none;
+  width: 120px;
+}
+
+.status_inline:hover .status_prompt {
+  display: inline;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 10px;
+  font-weight: 200;
+  color: azure;
 }

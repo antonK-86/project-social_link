@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Field } from "redux-form";
+import cls from "./Profile.module.css";
 
 const MyStatus = (props) => {
   //debugger;
@@ -53,12 +54,17 @@ const MyStatus = (props) => {
             value={localStatus}
           />
         ) : (
-          <span
-            style={{ color: "cornsilk", cursor: "pointer" }}
-            onDoubleClick={activateEditMode}
-          >
-            {props.status}
-          </span>
+          <div className={cls.status_inline}>
+            <span
+              style={{ color: "cornsilk", cursor: "pointer" }}
+              onDoubleClick={activateEditMode}
+            >
+              {props.status}
+            </span>
+            <span className={cls.status_prompt}>
+              Double click for edit status
+            </span>
+          </div>
         )
       ) : (
         <span>{props.status}</span>

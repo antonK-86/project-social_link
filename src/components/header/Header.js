@@ -14,7 +14,7 @@ const Header = (props) => {
   );
 };
 const UserIsAuth = (props) => {
-  let navToMyProfile = () => {
+  const navToMyProfile = () => {
     props.clearProfile();
     props.getProfileThunk(props.id);
     props.getProfileStatusThunk(props.id);
@@ -24,13 +24,7 @@ const UserIsAuth = (props) => {
       <div className={cls.user_img}>
         <img src={props.photo || userIcon} alt="user" width="70" height="70" />
       </div>
-      <NavLink
-        className={cls.user_name}
-        onClick={() => {
-          navToMyProfile();
-        }}
-        to="/profile"
-      >
+      <NavLink className={cls.user_name} onClick={navToMyProfile} to="/profile">
         {props.login}
       </NavLink>
     </div>

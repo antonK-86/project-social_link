@@ -18,6 +18,7 @@ class UsersContainer extends React.Component {
   componentWillUnmount() {
     this.props.clearUsers();
   }
+
   onPageChange = (page) => {
     //изменение номера страницы
     this.props.getCurrentPage(page);
