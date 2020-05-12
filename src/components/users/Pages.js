@@ -78,14 +78,16 @@ const Pages = (props) => {
           {" first page "}
         </span>
       )}
-      <span
-        className={cls.arrow}
-        onClick={() => {
-          fPrev();
-        }}
-      >
-        {"<< "}
-      </span>
+      {props.currentPage > 2 * props.countPage && (
+        <span
+          className={cls.arrow}
+          onClick={() => {
+            fPrev();
+          }}
+        >
+          {"<< "}
+        </span>
+      )}
       {page}
       <span
         className={cls.arrow}

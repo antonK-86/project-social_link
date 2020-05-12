@@ -5,7 +5,6 @@ import {
   addUsersThunk,
   followThunk,
   unFollowThunk,
-  loadingAction,
   clearUsers,
 } from "../../../redux/user-reducer";
 
@@ -51,5 +50,4 @@ export default connect(mapStateToProps, {
   followThunk,
   unFollowThunk,
   clearUsers,
-  loadingAction,
 })(UsersSContainer);

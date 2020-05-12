@@ -1,17 +1,18 @@
 import React, { Suspense } from "react";
 import { Route, withRouter, Switch } from "react-router-dom";
-import "./App.css";
-import HeaderContainer from "./components/header/HeaderContainer";
-import Navbar from "./components/navbar/Navbar";
-import RedirectTo from "./components/redirect/Redirect";
-import Test from "./components/test/Test";
-import SignContainer from "./components/sign/SignContainer";
 import { connect } from "react-redux";
 import { initApp } from "./redux/app-reducer";
 import { compose } from "redux";
+import "./App.css";
+import HeaderContainer from "./components/header/HeaderContainer";
+import Navbar from "./components/navbar/Navbar";
+//import RedirectTo from "./components/redirect/Redirect";
+//import Test from "./components/test/Test";
+//import Preloader from "./components/preloader/Preloader";
+import SignContainer from "./components/sign/SignContainer";
 import PreloaderApp from "./components/preloader/PreloaderApp";
 import ErrPage from "./components/errorpage/ErrPage";
-import Preloader from "./components/preloader/Preloader";
+import DemoWorks from "./components/demoworks/DemoWorks";
 import GameXO from "./components/game/GameXO";
 import UsersSContainer from "./components/users/usersWithScroll/UsersSContainer";
 import UsersContainer from "./components/users//UsersContainer";
@@ -23,7 +24,7 @@ const ProfileContainer = React.lazy(() =>
 );
 const UsersContainer = React.lazy(() =>
   import("./components/users/UsersContainer")
-);
+); 
 */
 class App extends React.Component {
   componentDidMount() {
@@ -50,8 +51,9 @@ class App extends React.Component {
                 render={() => <ProfileContainer />}
               />
               <Route path="/usersS" render={() => <UsersSContainer />} />
-              <Route path="/test" render={() => <Test />} />
-              <Route path="/redirect" component={RedirectTo} />
+              {/* <Route path="/test" render={() => <Test />} />
+              <Route path="/redirect" component={RedirectTo} /> */}
+              <Route path="/demoworks" component={DemoWorks} />
               <Route path="/game" component={GameXO} />
               <Route path="/sign" render={() => <SignContainer />} />
               <Route component={ErrPage} />

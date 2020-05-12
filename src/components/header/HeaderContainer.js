@@ -16,6 +16,12 @@ class HeaderContainer extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.props.isAuth) {
+      this.props.getPhotoProfileThunkC(this.props.id);
+    }
+  }
+
   /*
   componentDidUpdate() {
     if (this.props.profile && this.props.profile.userId === this.props.id) {

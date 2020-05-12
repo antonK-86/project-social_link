@@ -49,8 +49,12 @@ const Users = (props) => {
   return (
     <div className={cls.users_page}>
       <Pages {...props} />
+      {props.loading && (
+        <div className={cls.preloader_wrap}>
+          <Preloader />
+        </div>
+      )}
       <div className={cls.users}>{usersArr}</div>
-      <div>{props.loading && <Preloader />}</div>
     </div>
   );
 };

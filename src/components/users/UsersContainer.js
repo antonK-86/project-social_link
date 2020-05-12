@@ -9,6 +9,7 @@ import {
   editPages,
   clearUsers,
 } from "../../redux/user-reducer";
+import Preloader from "../preloader/Preloader";
 
 class UsersContainer extends React.Component {
   componentDidMount() {

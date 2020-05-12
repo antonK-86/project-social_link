@@ -25,11 +25,11 @@ const Navbar = (props) => {
           Test
         </NavLink>
         <NavLink
-          to="/redirect"
+          to="/demoworks"
           className={cls.link}
           activeClassName={cls.active}
         >
-          Redirect
+          Demo works
         </NavLink>
         <NavLink to="/game" className={cls.link} activeClassName={cls.active}>
           Game XO

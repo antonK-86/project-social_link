@@ -1,5 +1,6 @@
 import { profileApi } from "../api/Api";
 import { stopSubmit } from "redux-form";
+import { getPhotoProfileThunkC } from "./auth-reducer";
 
 let initialState = {
   profile: null,
@@ -139,6 +140,7 @@ export const updateProfileThunk = (data) => async (dispatch, getState) => {
 export const savePhotoThunk = (photofile, userId) => async (dispatch) => {
   await profileApi.uploadPhoto(photofile);
   dispatch(getProfileThunk(userId));
+  dispatch(getPhotoProfileThunkC(userId));
 };
 
 export const getProfileStatusThunk = (userId) => (dispatch) => {

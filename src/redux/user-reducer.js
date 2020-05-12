@@ -5,7 +5,7 @@ let initialState = {
   count: 20,
   currentPage: 1,
   totalCount: 0,
-  //countPage: 12, //кол-во отображ страниц
+  countPage: 12, //кол-во отображ страниц
   limitPages: 12, //номер последней отображ страницы
   j: 1,
   numList: 1, //номер списокa users при прокрутке странице
@@ -128,10 +128,12 @@ const unFollowAction = (userId) => ({
 
 export const getUsersThunk = (count, page) => async (dispatch) => {
   try {
+    dispatch(loadingAction(true));
     let response = await usersApi.getUsers(count, page);
     dispatch(getUsersAction(response.data.items, response.data.totalCount));
+    dispatch(loadingAction(false));
   } catch (error) {
-    alert("Error on load");
+    alert("Error loading users");
   }
 };
 
